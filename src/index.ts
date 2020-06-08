@@ -1,3 +1,12 @@
-import { helper } from "./lib/helper";
+import TraversalContainer from "./containers/traversal-container/traversal-container";
+import VanillaDOM from "./core/vanilla-dom";
 
-console.log(helper);
+function render() {
+  const c = new TraversalContainer();
+  const root = document.querySelector("#root") as Node;
+  VanillaDOM.render(root, c.render({ parent: root }));
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  render();
+});
